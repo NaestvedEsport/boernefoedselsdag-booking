@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,800&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Book børnefødselsdag – Næstved Esport</title>
+<style>
+:root{box-sizing:border-box;color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#1F1F20;--card:#1F1F20e6;--field:#3A3A3C;--txt:#f4f6f2;--mut:#c4c7c0;--line:#525354;--acc:#3BB54A;--acc2:#89C240;--deep:#184520;--accTxt:#0d1f10;--pink:#CD9084;--ok:#89C240;--bad:#CD9084}
+body{background:#184520 url(assets/bg.jpg) center/cover fixed}
+h1,h2,.btn,.chip div,.sum .tot{font-family:"Barlow Condensed","Arial Narrow",Impact,sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:.02em}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;color:var(--txt);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:26px 20px 74px;text-align:center;background:linear-gradient(#0008,#0000)}
+header img{width:min(220px,55vw);height:auto;filter:drop-shadow(0 6px 14px #000a)}
+header h1{margin:8px 0 4px;font-size:clamp(1.9rem,6vw,2.8rem);color:#fff;text-shadow:0 2px 0 #000}
+header p{margin:0;color:var(--acc2)}
+main{max-width:980px;margin:-48px auto 40px;padding:0 16px;display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:860px){main{grid-template-columns:1fr 320px;align-items:start}}
+.card{background:var(--card);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:16px;padding:20px}
+h2{font-size:1.05rem;margin:0 0 12px;display:flex;gap:10px;align-items:center}
+h2 span{background:var(--acc);color:var(--accTxt);border-radius:50%;width:26px;height:26px;display:inline-grid;place-items:center;font-size:.85rem}
+label{display:block;font-weight:600;font-size:.9rem;margin:12px 0 4px}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--field);color:var(--txt);font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--acc);outline-offset:1px}
+.row{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{flex:1 1 70px}
+.chip input{position:absolute;opacity:0}
+.chip div{border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;cursor:pointer;background:var(--field);font-weight:700;font-size:1.1rem}
+.chip input:checked+div{background:var(--acc);border-color:var(--acc);color:var(--accTxt)}
+.chip input:focus-visible+div{outline:2px solid var(--acc);outline-offset:2px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:11px;border:1px solid var(--line);border-radius:10px;margin-top:8px;cursor:pointer;font-weight:400;font-size:1rem}
+.opt input{width:auto;margin-top:5px}
+.opt small{display:block;color:var(--mut)}
+.step{display:flex;align-items:center;gap:12px}
+.step button{width:44px;height:44px;border-radius:10px;border:1px solid var(--line);background:var(--field);color:var(--txt);font-size:1.4rem;cursor:pointer}
+.step b{font-size:1.5rem;min-width:2ch;text-align:center}
+.hint{color:var(--mut);font-size:.85rem;margin:6px 0 0}
+.warn{color:var(--bad);font-size:.9rem;margin:8px 0 0}
+aside{position:sticky;top:12px}
+.sum div{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:.95rem}
+.sum .tot{border-top:1px solid var(--line);margin-top:8px;padding-top:10px;font-weight:700;font-size:1.2rem}
+.btn{display:block;width:100%;margin-top:14px;padding:14px;border:0;border-radius:12px;background:var(--acc);color:var(--accTxt);font-size:1.3rem;cursor:pointer;text-align:center;text-decoration:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.alt{background:transparent;color:var(--acc);border:1px solid var(--acc)}
+.done{border-color:var(--ok)}
+.done h2{color:var(--ok)}
+.hint,label.opt small{color:var(--mut)}
+.sum .tot{color:var(--acc2)}
+.hide{display:none}
+footer{text-align:center;color:var(--mut);font-size:.85rem;padding:0 16px 30px}
+footer a{color:var(--acc)}
+</style>
+</head>
+<body>
+<header>
+  <img alt="Næstved Esport" src="assets/logo.png">
+  <h1>Book børnefødselsdag</h1>
+  <p>Næstved Esport · Ved Stadion 11, 4700 Næstved</p>
+</header>
+<main>
+<div id="formWrap" style="display:grid;gap:18px">
+
+  <section class="card">
+    <h2><span>1</span>Dato og tid</h2>
+    <div class="row">
+      <div><label for="date">Dato</label><input type="date" id="date"></div>
+      <div><label for="start">Starttidspunkt</label>
+        <select id="start"></select></div>
+    </div>
+    <label>Varighed (minimum 3 timer)</label>
+    <div class="chips" id="dur"></div>
+    <p class="warn hide" id="clash">Den valgte tid ser ud til at være optaget. Vælg en anden dag eller et andet tidspunkt.</p>
+    <p class="hint" id="avail"></p>
+  </section>
+
+  <section class="card">
+    <h2><span>2</span>Deltagere</h2>
+    <div class="step">
+      <button type="button" id="minus" aria-label="Færre">−</button><b id="n">10</b>
+      <button type="button" id="plus" aria-label="Flere">+</button>
+      <span class="hint">inkl. fødselaren (maks. 20)</span>
+    </div>
+    <p class="hint" id="nHint"></p>
+    <div class="row">
+      <div><label for="child">Fødselarens navn</label><input id="child" autocomplete="off"></div>
+      <div><label for="age">Fyldte år</label><input id="age" type="number" min="3" max="18" inputmode="numeric"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span>3</span>Mad og drikke</h2>
+    <label class="opt"><input type="radio" name="food" value="Vi medbringer selv mad" checked><div>Vi medbringer selv mad<small>Du er velkommen til at tage kage, pizza m.m. med.</small></div></label>
+    <label class="opt"><input type="radio" name="food" value="Vi har brug for hjælp til mad"><div>Vi vil gerne drøfte mad med jer<small>Vi kontakter dig, så vi finder en løsning.</small></div></label>
+    <label>Drikkevarer</label>
+    <label class="opt"><input type="radio" name="drink" value="own" checked><div>Vi medbringer selv drikkevarer</div></label>
+    <label class="opt"><input type="radio" name="drink" value="kiosk"><div>Vi køber drikkevarer i kiosken<small>10 kr. pr. stk. Forhåndsbestil 1 drikkevare pr. deltager – betales på dagen, og du støtter foreningen.</small></div></label>
+  </section>
+
+  <section class="card">
+    <h2><span>4</span>Ønsker og tilvalg</h2>
+    <label for="games">Hvad vil børnene spille?</label>
+    <input id="games" placeholder="fx Fortnite, Roblox, Minecraft, CS2 …">
+    <label class="opt"><input type="checkbox" id="login"><div>Vi har brug for gæstebrugere til enkelte deltagere<small>Vi anbefaler, at alle medbringer eget brugernavn og kode.</small></div></label>
+    <label for="note">Allergier, særlige hensyn eller andre ønsker</label>
+    <textarea id="note" rows="3"></textarea>
+  </section>
+
+  <section class="card">
+    <h2><span>5</span>Kontaktoplysninger</h2>
+    <div class="row">
+      <div><label for="name">Dit navn</label><input id="name" autocomplete="name"></div>
+      <div><label for="phone">Telefon</label><input id="phone" type="tel" autocomplete="tel"></div>
+    </div>
+    <label for="mail">E-mail</label><input id="mail" type="email" autocomplete="email">
+  </section>
+</div>
+
+<aside>
+  <div class="card" id="sumCard">
+    <h2>Din booking</h2>
+    <div class="sum" id="sum"></div>
+    <p class="hint" id="priceNote"></p>
+    <button class="btn" id="go" type="button">Send bookingforespørgsel</button>
+    <p class="warn hide" id="err"></p>
+    <p class="hint">Din forespørgsel er først bekræftet, når Næstved Esport har svaret dig.</p>
+  </div>
+  <div class="card done hide" id="doneCard" style="margin-top:18px">
+    <h2>✅ Tak! Forespørgslen er klar</h2>
+    <p id="doneTxt" class="hint"></p>
+    <a class="btn" id="mailBtn" href="#">Send som e-mail til Næstved Esport</a>
+    <button class="btn alt" id="again" type="button">Ny booking</button>
+  </div>
+</aside>
+</main>
+<footer>Spørgsmål? Skriv til <a href="mailto:Info@nesport.dk">Info@nesport.dk</a> · <a href="https://www.nesport.dk/boernefoedselsdag/">Læs mere om børnefødselsdag</a></footer>
+
+<script>
+(function(){
+var PRICE=500, EXTRA=150, KIOSK=10, MIN_H=3, MAX_N=20, FREE_N=14;
+var $=function(i){return document.getElementById(i)};
+var state={n:10,h:3},booked=[],db=null;
+
+// datoer: tidligst 7 dage frem
+var d0=new Date();d0.setDate(d0.getDate()+7);
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+$("date").min=iso(d0);$("date").value=iso(d0);
+for(var t=10;t<=19;t++){var o=document.createElement("option");o.value=t;o.textContent=String(t).padStart(2,"0")+":00";$("start").appendChild(o)}
+$("start").value=12;
+[3,4,5,6].forEach(function(h){
+  var l=document.createElement("label");l.className="chip";
+  l.innerHTML='<input type="radio" name="dur" value="'+h+'"'+(h===3?" checked":"")+'><div>'+h+' timer</div>';
+  $("dur").appendChild(l);
+});
+function kr(x){return x.toLocaleString("da-DK")+" kr."}
+function val(n){return document.querySelector('input[name="'+n+'"]:checked').value}
+function calc(){
+  var h=+val("dur"),n=state.n,ph=PRICE+(n>FREE_N?EXTRA:0);
+  var drinks=val("drink")==="kiosk"?n*KIOSK:0;
+  return {h:h,n:n,ph:ph,room:ph*h,drinks:drinks,total:ph*h+drinks};
+}
+function clash(){
+  var dt=$("date").value,s=+$("start").value,e=s+(+val("dur"));
+  return booked.some(function(b){return b.date===dt&&s<b.start+b.hours&&b.start<e});
+}
+function fmtDate(v){
+  if(!v)return"–";var p=v.split("-");
+  return new Date(+p[0],+p[1]-1,+p[2]).toLocaleDateString("da-DK",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+}
+function hh(x){return String(x).padStart(2,"0")+":00"}
+function render(){
+  var c=calc(),s=+$("start").value;
+  $("n").textContent=c.n;
+  $("nHint").textContent=c.n>FREE_N?"Over 14 deltagere kræver som udgangspunkt en ekstra opsynsperson (+150 kr. pr. time).":"";
+  var cl=clash();$("clash").classList.toggle("hide",!cl);
+  $("avail").textContent=db?"Optagne tider opdateres automatisk.":"";
+  $("sum").innerHTML=
+    "<div><span>Dato</span><span style='text-align:right'>"+fmtDate($("date").value)+"</span></div>"+
+    "<div><span>Tid</span><span>"+hh(s)+" – "+hh(s+c.h)+"</span></div>"+
+    "<div><span>Deltagere</span><span>"+c.n+"</span></div>"+
+    "<div><span>Leje ("+c.h+" t × "+c.ph+" kr.)</span><span>"+kr(c.room)+"</span></div>"+
+    (c.drinks?"<div><span>Drikkevarer i kiosk</span><span>"+kr(c.drinks)+"</span></div>":"")+
+    "<div class='tot'><span>I alt (vejledende)</span><span>"+kr(c.total)+"</span></div>";
+  $("priceNote").textContent="Pris inkl. frivillig opsynsperson. Kioskdrikke betales på dagen.";
+  $("go").disabled=cl;
+}
+$("plus").onclick=function(){state.n=Math.min(MAX_N,state.n+1);render()};
+$("minus").onclick=function(){state.n=Math.max(1,state.n-1);render()};
+document.addEventListener("change",render);document.addEventListener("input",render);
+
+function build(){
+  var c=calc(),g=function(i){return $(i).value.trim()};
+  return {date:$("date").value,start:+$("start").value,hours:c.h,participants:c.n,child:g("child"),age:g("age"),
+    food:val("food"),drinks:val("drink")==="kiosk"?"Køber i kiosken ("+c.n+" stk.)":"Medbringer selv",
+    games:g("games"),guestLogins:$("login").checked,note:g("note"),
+    name:g("name"),phone:g("phone"),email:g("mail"),total:c.total,status:"ny",created:new Date().toISOString()};
+}
+function mailBody(b){
+  return ["Hej Næstved Esport","","Jeg vil gerne booke en børnefødselsdag:","",
+   "Dato: "+fmtDate(b.date),"Tid: "+hh(b.start)+" – "+hh(b.start+b.hours)+" ("+b.hours+" timer)",
+   "Deltagere: "+b.participants,"Fødselar: "+b.child+(b.age?" ("+b.age+" år)":""),
+   "Mad: "+b.food,"Drikkevarer: "+b.drinks,"Spil: "+(b.games||"–"),
+   "Gæstebrugere: "+(b.guestLogins?"Ja":"Nej"),
+   "Bemærkninger: "+(b.note||"–"),"","Vejledende pris: "+kr(b.total),"",
+   "Kontakt: "+b.name+", tlf. "+b.phone+", "+b.email].join("\n");
+}
+$("go").onclick=async function(){
+  var b=build(),m="";
+  if(!b.date)m="Vælg en dato.";
+  else if(!b.child)m="Skriv fødselarens navn.";
+  else if(!b.name||!b.phone)m="Udfyld dit navn og telefonnummer.";
+  else if(!/^\S+@\S+\.\S+$/.test(b.email))m="Indtast en gyldig e-mailadresse.";
+  $("err").textContent=m;$("err").classList.toggle("hide",!m);
+  if(m)return;
+  var saved=false;
+  if(db){try{await db.collection("bookings").add(b);saved=true}catch(e){}}
+  $("mailBtn").href="mailto:Info@nesport.dk?subject="+encodeURIComponent("Booking af børnefødselsdag "+b.date)+"&body="+encodeURIComponent(mailBody(b));
+  $("doneTxt").textContent=saved
+    ?"Vi har modtaget din forespørgsel og vender tilbage hurtigst muligt. Du kan også sende en kopi på e-mail."
+    :"Tryk på knappen herunder for at sende forespørgslen til Info@nesport.dk. Så vender vi tilbage hurtigst muligt.";
+  $("sumCard").classList.add("hide");$("doneCard").classList.remove("hide");
+  $("formWrap").style.display="none";window.scrollTo(0,0);
+};
+$("again").onclick=function(){
+  $("doneCard").classList.add("hide");$("sumCard").classList.remove("hide");
+  $("formWrap").style.display="grid";render();
+};
+
+// delt kalender (hvis tilgængelig)
+(async function(){
+  try{
+    if(!window.claude||!claude.use)return;
+    db=await claude.use("db");if(!db)return;
+    db.collection("bookings").onSnapshot(function(snap){
+      booked=snap.docs.map(function(d){return d.data()}).filter(function(x){return x&&x.status!=="afvist"});
+      render();
+    },function(){db=null;render()});
+  }catch(e){db=null}
+})();
+render();
+})();
+</script>
+</body>
+</html>
